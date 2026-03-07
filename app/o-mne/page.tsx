@@ -52,12 +52,12 @@ export default function AboutPage() {
             </div>
 
             <div className="relative flex justify-center">
-              <div className="float-anim" style={{ width: 380, height: 460, maxWidth: '100%', borderRadius: '40% 60% 50% 50% / 60% 40% 60% 40%', boxShadow: '0 25px 70px rgba(191,133,133,0.3)', overflow: 'hidden', position: 'relative' }}>
+              <div className="float-anim" style={{ width: 360, height: 440, maxWidth: '100%', borderRadius: '50%', boxShadow: '0 25px 70px rgba(191,133,133,0.4)', overflow: 'hidden', position: 'relative', border: '4px solid rgba(191,133,133,0.35)' }}>
                 <Image
                   src="/images/kristyna-original.jpg"
                   alt="Kristýna Pokorná – Dula Kika"
                   fill
-                  style={{ objectFit: 'cover', objectPosition: 'center top' }}
+                  style={{ objectFit: 'cover', objectPosition: 'center 15%' }}
                 />
               </div>
               <div className="absolute -bottom-4 -right-4 soft-card p-5" style={{ maxWidth: 180 }}>
