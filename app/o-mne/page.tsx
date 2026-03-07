@@ -54,7 +54,7 @@ export default function AboutPage() {
             <div className="relative flex justify-center">
               <div className="float-anim" style={{ width: 360, height: 440, maxWidth: '100%', borderRadius: '50%', boxShadow: '0 25px 70px rgba(191,133,133,0.4)', overflow: 'hidden', position: 'relative', border: '4px solid rgba(191,133,133,0.35)' }}>
                 <Image
-                  src="/images/kristyna-original.jpg"
+                  src="/images/kristyna.jpg"
                   alt="Kristýna Pokorná – Dula Kika"
                   fill
                   style={{ objectFit: 'cover', objectPosition: 'center 15%' }}
