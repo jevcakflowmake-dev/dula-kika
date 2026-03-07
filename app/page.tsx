@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import AnimatedSection from '@/components/AnimatedSection';
 
 const services = [
@@ -62,12 +63,14 @@ export default function Home() {
             </div>
 
             <div className="relative flex justify-center">
-              <div className="float-anim" style={{ width: 420, height: 520, maxWidth: '100%', borderRadius: '60% 40% 60% 40% / 50% 60% 40% 50%', background: 'linear-gradient(145deg, #D4A9A9 0%, #BF8585 40%, #9B6B6B 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 30px 80px rgba(191,133,133,0.35)', overflow: 'hidden' }}>
-                <div style={{ textAlign: 'center', color: 'rgba(255,255,255,0.85)' }}>
-                  <div style={{ fontSize: '5rem' }}>🌸</div>
-                  <p style={{ fontSize: '0.95rem', marginTop: '1rem', padding: '0 2rem', fontFamily: 'var(--font-playfair)' }}>Kristýna Pokorná, DiS.</p>
-                  <p style={{ fontSize: '0.75rem', opacity: 0.8, marginTop: '0.25rem', letterSpacing: '0.05em' }}>MODERNÍ DULA</p>
-                </div>
+              <div className="float-anim" style={{ width: 420, height: 520, maxWidth: '100%', borderRadius: '60% 40% 60% 40% / 50% 60% 40% 50%', boxShadow: '0 30px 80px rgba(191,133,133,0.35)', overflow: 'hidden', position: 'relative' }}>
+                <Image
+                  src="/images/kristyna-original.jpg"
+                  alt="Kristýna Pokorná – Dula Kika"
+                  fill
+                  style={{ objectFit: 'cover', objectPosition: 'center top' }}
+                  priority
+                />
               </div>
               <div className="absolute bottom-10 -left-4 soft-card p-4 float-anim-delay" style={{ maxWidth: 200, zIndex: 10 }}>
                 <div className="flex mb-1">{[...Array(5)].map((_, i) => <span key={i} className="star text-sm">★</span>)}</div>

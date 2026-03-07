@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import AnimatedSection from '@/components/AnimatedSection';
 
 export const metadata: Metadata = {
@@ -51,12 +52,13 @@ export default function AboutPage() {
             </div>
 
             <div className="relative flex justify-center">
-              <div className="float-anim" style={{ width: 380, height: 460, maxWidth: '100%', borderRadius: '40% 60% 50% 50% / 60% 40% 60% 40%', background: 'linear-gradient(145deg, #F5EDED 0%, #D4A9A9 40%, #BF8585 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 25px 70px rgba(191,133,133,0.3)' }}>
-                <div style={{ textAlign: 'center', color: 'rgba(255,255,255,0.9)' }}>
-                  <div style={{ fontSize: '4rem' }}>👩‍⚕️</div>
-                  <p style={{ fontFamily: 'var(--font-playfair)', fontSize: '1.1rem', marginTop: '1rem' }}>Kristýna Pokorná</p>
-                  <p style={{ fontSize: '0.8rem', opacity: 0.85, marginTop: '0.25rem' }}>DiS. • Moderní dula</p>
-                </div>
+              <div className="float-anim" style={{ width: 380, height: 460, maxWidth: '100%', borderRadius: '40% 60% 50% 50% / 60% 40% 60% 40%', boxShadow: '0 25px 70px rgba(191,133,133,0.3)', overflow: 'hidden', position: 'relative' }}>
+                <Image
+                  src="/images/kristyna-original.jpg"
+                  alt="Kristýna Pokorná – Dula Kika"
+                  fill
+                  style={{ objectFit: 'cover', objectPosition: 'center top' }}
+                />
               </div>
               <div className="absolute -bottom-4 -right-4 soft-card p-5" style={{ maxWidth: 180 }}>
                 <p className="text-2xl font-bold" style={{ color: '#BF8585', fontFamily: 'var(--font-playfair)' }}>100+</p>
