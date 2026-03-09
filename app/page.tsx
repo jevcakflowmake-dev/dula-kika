@@ -63,12 +63,13 @@ export default function Home() {
             </div>
 
             <div className="relative flex justify-center">
-              <div className="float-anim" style={{ width: 380, height: 460, maxWidth: '100%', borderRadius: '50%', boxShadow: '0 30px 80px rgba(191,133,133,0.4)', overflow: 'hidden', position: 'relative', border: '4px solid rgba(191,133,133,0.35)' }}>
+              <div className="float-anim" style={{ width: 380, height: 460, maxWidth: '100%', borderRadius: '50%', boxShadow: '0 30px 80px rgba(191,133,133,0.4)', overflow: 'hidden', border: '4px solid rgba(191,133,133,0.35)', flexShrink: 0 }}>
                 <Image
                   src="/images/kristyna.jpg"
                   alt="Kristýna Pokorná – Dula Kika"
-                  fill
-                  style={{ objectFit: 'cover', objectPosition: 'center 15%' }}
+                  width={380}
+                  height={460}
+                  style={{ objectFit: 'cover', objectPosition: 'center 15%', width: '100%', height: '100%' }}
                   priority
                 />
               </div>
