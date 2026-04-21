@@ -1,6 +1,10 @@
 'use client';
 
 import { useEffect, useRef, ReactNode } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface Props {
   children: ReactNode;
@@ -9,39 +13,38 @@ interface Props {
   direction?: 'up' | 'left' | 'right' | 'fade';
 }
 
-export default function AnimatedSection({ children, className = '', delay = 0, direction = 'up' }: Props) {
+export default function AnimatedSection({
+  children,
+  className = '',
+  delay = 0,
+  direction = 'up',
+}: Props) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
 
-    const getInitialTransform = () => {
-      switch (direction) {
-        case 'left': return 'translateX(-40px)';
-        case 'right': return 'translateX(40px)';
-        case 'fade': return 'scale(0.97)';
-        default: return 'translateY(35px)';
-      }
+    const fromVars: gsap.TweenVars = {
+      opacity: 0,
+      duration: 0.9,
+      ease: 'power3.out',
+      delay: delay / 1000,
     };
 
-    el.style.opacity = '0';
-    el.style.transform = getInitialTransform();
-    el.style.transition = `opacity 0.7s ease ${delay}ms, transform 0.7s ease ${delay}ms`;
+    if (direction === 'up')    fromVars.y = 50;
+    if (direction === 'left')  fromVars.x = -48;
+    if (direction === 'right') fromVars.x = 48;
+    if (direction === 'fade')  fromVars.scale = 0.97;
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          el.style.opacity = '1';
-          el.style.transform = 'none';
-          observer.unobserve(el);
-        }
-      },
-      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
-    );
+    const ctx = gsap.context(() => {
+      gsap.from(el, {
+        scrollTrigger: { trigger: el, start: 'top 88%', once: true },
+        ...fromVars,
+      });
+    });
 
-    observer.observe(el);
-    return () => observer.disconnect();
+    return () => ctx.revert();
   }, [delay, direction]);
 
   return (
